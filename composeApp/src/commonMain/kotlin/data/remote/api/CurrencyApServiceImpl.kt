@@ -40,6 +40,8 @@ class CurrencyApiServiceImpl(
             requestTimeoutMillis = 15_000L
         }
         install(DefaultRequest) {
+            // io.ktor.client.request.headers 말고
+            // io.ktor.http.headers <- 이거 import 하면 header 에 정상적으로 apikey가 추가되지 않음
             headers {
                 append("apikey", API_KEY)
             }
